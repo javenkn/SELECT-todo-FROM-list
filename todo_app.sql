@@ -39,4 +39,7 @@ ALTER TABLE IF EXISTS tasks
 INSERT INTO tasks (title, description)
   VALUES ('Study SQL', 'Complete this exercise');
 
+INSERT INTO tasks (title, description)
+  VALUES ('Study PostgreSQL', 'Read all the documentation');
+
 SELECT * FROM tasks;
