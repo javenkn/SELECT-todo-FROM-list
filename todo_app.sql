@@ -53,9 +53,13 @@ INSERT INTO tasks (title, description)
 -- select all the titles of tasks that are not yet completed
 SELECT title FROM tasks WHERE completed_at is NULL;
 
+-- update the task with a title of 'Study SQL' to be completed as of now
 UPDATE tasks
   SET completed_at = now() WHERE title = 'Study SQL';
 
+-- select all titles and descriptions of tasks that are not yet completed
 SELECT title, description FROM tasks WHERE completed_at is NULL;
 
+-- select all fields of every task sorted by creation date in descending order
+SELECT * FROM tasks ORDER BY created_at DESC;
 -- SELECT * FROM tasks;
