@@ -27,3 +27,11 @@ ALTER TABLE IF EXISTS tasks
 
 ALTER TABLE IF EXISTS tasks
   ADD COLUMN completed_at timestamp NULL DEFAULT NULL;
+
+ALTER TABLE IF EXISTS tasks
+  ALTER COLUMN updated_at
+    DROP NOT NULL;
+
+ALTER TABLE IF EXISTS tasks
+  ALTER COLUMN updated_at
+    SET DEFAULT now();
