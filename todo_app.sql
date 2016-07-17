@@ -56,4 +56,6 @@ SELECT title FROM tasks WHERE completed_at is NULL;
 UPDATE tasks
   SET completed_at = now() WHERE title = 'Study SQL';
 
-SELECT * FROM tasks;
+SELECT title, description FROM tasks WHERE completed_at is NULL;
+
+-- SELECT * FROM tasks;
