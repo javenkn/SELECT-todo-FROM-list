@@ -12,7 +12,7 @@ CREATE USER michael
 \c todo_app;
 
 DROP TABLE IF EXISTS tasks;
-
+-- Write a query to create a table named tasks using the Initial columns detailed below
 CREATE TABLE tasks (
   id SERIAL PRIMARY KEY,
   title VARCHAR(255) UNIQUE NOT NULL,
@@ -22,24 +22,36 @@ CREATE TABLE tasks (
   completed boolean NOT NULL DEFAULT false
 );
 
+-- remove the column named completed
 ALTER TABLE IF EXISTS tasks
   DROP COLUMN IF EXISTS completed;
 
+-- add a column to tasks named completed_at:timestamp, that may be NULL, and has a default value of NULL.
 ALTER TABLE IF EXISTS tasks
-  ADD COLUMN completed_at timestamp NULL DEFAULT NULL;
+  ADD COLUMN completed_at timestamp NULL;
+
+ALTER TABLE IF EXISTS tasks
+  ALTER COLUMN completed_at
+    SET DEFAULT NULL;
 
 ALTER TABLE IF EXISTS tasks
   ALTER COLUMN updated_at
     DROP NOT NULL;
 
+-- change the updated_at column to not allow NULL values, and have a default value of now()
 ALTER TABLE IF EXISTS tasks
   ALTER COLUMN updated_at
     SET DEFAULT now();
-
+-- create a new task, by only setting values (not defining which columns)
 INSERT INTO tasks (title, description)
   VALUES ('Study SQL', 'Complete this exercise');
 
+-- create a new task
 INSERT INTO tasks (title, description)
   VALUES ('Study PostgreSQL', 'Read all the documentation');
 
 SELECT * FROM tasks;
+-- select all the titles of tasks that are not yet completed
+SELECT * FROM tasks WHERE completed_at is NULL;
+
+\d+ tasks;
