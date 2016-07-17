@@ -34,11 +34,12 @@ ALTER TABLE IF EXISTS tasks
   ALTER COLUMN completed_at
     SET DEFAULT NULL;
 
+-- change the updated_at column to not allow NULL values, and have a default value of now()
+
 ALTER TABLE IF EXISTS tasks
   ALTER COLUMN updated_at
     DROP NOT NULL;
 
--- change the updated_at column to not allow NULL values, and have a default value of now()
 ALTER TABLE IF EXISTS tasks
   ALTER COLUMN updated_at
     SET DEFAULT now();
