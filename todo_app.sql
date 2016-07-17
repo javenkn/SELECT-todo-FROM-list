@@ -50,8 +50,5 @@ INSERT INTO tasks (title, description)
 INSERT INTO tasks (title, description)
   VALUES ('Study PostgreSQL', 'Read all the documentation');
 
-SELECT * FROM tasks;
 -- select all the titles of tasks that are not yet completed
-SELECT * FROM tasks WHERE completed_at is NULL;
-
-\d+ tasks;
+SELECT title FROM tasks WHERE completed_at is NULL;
