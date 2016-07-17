@@ -62,4 +62,15 @@ SELECT title, description FROM tasks WHERE completed_at is NULL;
 
 -- select all fields of every task sorted by creation date in descending order
 SELECT * FROM tasks ORDER BY created_at DESC;
+
+-- create a new task
+INSERT INTO tasks (title, description)
+  VALUES ('mistake 1', 'a test entry');
+-- create a new task
+INSERT INTO tasks (title, description)
+  VALUES ('mistake 2', 'another test entry');
+--create a new task
+INSERT INTO tasks (title, description)
+  VALUES ('third mistake', 'another test entry');
+
 -- SELECT * FROM tasks;
