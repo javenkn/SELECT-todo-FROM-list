@@ -87,4 +87,3 @@ DELETE FROM tasks WHERE title LIKE '%mistake%';
 
 -- select all fields of all tasks sorted by title in ascending order
 SELECT * FROM tasks ORDER BY title ASC;
--- SELECT * FROM tasks;
