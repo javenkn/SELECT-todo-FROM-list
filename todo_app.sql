@@ -24,32 +24,23 @@ CREATE TABLE tasks (
 
 -- remove the column named completed
 ALTER TABLE IF EXISTS tasks
-  DROP COLUMN IF EXISTS completed;
+  DROP COLUMN IF EXISTS completed,
 
 -- add a column to tasks named completed_at:timestamp, that may be NULL, and has a default value of NULL.
-ALTER TABLE IF EXISTS tasks
-  ADD COLUMN completed_at timestamp NULL;
-
-ALTER TABLE IF EXISTS tasks
+  ADD COLUMN completed_at timestamp NULL,
   ALTER COLUMN completed_at
-    SET DEFAULT NULL;
+    SET DEFAULT NULL,
 
 -- change the updated_at column to not allow NULL values, and have a default value of now()
-
-ALTER TABLE IF EXISTS tasks
   ALTER COLUMN updated_at
-    DROP NOT NULL;
-
-ALTER TABLE IF EXISTS tasks
+    DROP NOT NULL,
   ALTER COLUMN updated_at
     SET DEFAULT now();
 -- create a new task, by only setting values (not defining which columns)
 INSERT INTO tasks (title, description)
-  VALUES ('Study SQL', 'Complete this exercise');
-
+  VALUES ('Study SQL', 'Complete this exercise'),
 -- create a new task
-INSERT INTO tasks (title, description)
-  VALUES ('Study PostgreSQL', 'Read all the documentation');
+         ('Study PostgreSQL', 'Read all the documentation');
 
 -- select all the titles of tasks that are not yet completed
 SELECT title FROM tasks WHERE completed_at is NULL;
@@ -66,13 +57,11 @@ SELECT * FROM tasks ORDER BY created_at DESC;
 
 -- create a new task
 INSERT INTO tasks (title, description)
-  VALUES ('mistake 1', 'a test entry');
+  VALUES ('mistake 1', 'a test entry'),
 -- create a new task
-INSERT INTO tasks (title, description)
-  VALUES ('mistake 2', 'another test entry');
+         ('mistake 2', 'another test entry'),
 --create a new task
-INSERT INTO tasks (title, description)
-  VALUES ('third mistake', 'another test entry');
+         ('third mistake', 'another test entry');
 
 -- select title fields of all tasks with a title that includes the word 'mistake'
 SELECT title FROM tasks WHERE title LIKE '%mistake%';
