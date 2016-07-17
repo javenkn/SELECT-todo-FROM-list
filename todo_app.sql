@@ -35,3 +35,8 @@ ALTER TABLE IF EXISTS tasks
 ALTER TABLE IF EXISTS tasks
   ALTER COLUMN updated_at
     SET DEFAULT now();
+
+INSERT INTO tasks (title, description)
+  VALUES ('Study SQL', 'Complete this exercise');
+
+SELECT * FROM tasks;
